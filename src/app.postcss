@@ -4,16 +4,48 @@
 @tailwind variants;
 
 html, body { @apply h-full }
+
+:root {
+	--app-bar-height: 53px;
+	--content-heading-height: 100px;
+	--bg-position: center var(--app-bar-height);
+}
+
+:root [data-theme='tailglow'] {
+    --bg-image: url('$lib/images/tailglow-bg.png');
+	--bg: var(--bg-image);
+}
+
+:root [data-theme='oregano'] {
+	--bg-image: url('$lib/images/oregano-bg.jpg');
+	--bg-image-mobile: url('$lib/images/oregano-bg-mobile.jpg');
+	--bg-attachment: fixed;
+	--bg-repeat: no-repeat;
+	--bg-size: cover;
+	--bg-position: center;
+	--bg: var(--bg-image) var(--bg-repeat) var(--bg-attachment) var(--bg-position);
+}
+
+.app-bar {
+	height: var(--app-bar-height);
+}
+
 body {
-    background-image: url('$lib/images/bg.png');
-    background-position: center;
+	background: var(--bg);
+	background-size: var(--bg-size);
+	background-attachment: --bg-attachment;
+	@media screen and (max-width: 800px) {
+		background-image: var(--bg-image-mobile,var(--bg-image));
+		/* background-image: var(--bg-image-mobile), var(--bg-image); */
+	}
 }
 .page-main {
 	@apply 	md:w-3/4 
 			w-full px-4 mx-auto
 	;
 	p,ul {
-		@apply m-4 leading-snug mx-auto max-w-[850px];
+		@apply m-4 leading-snug mx-auto max-w-[850px]
+			indent-4
 	}
 
 	li {
@@ -23,6 +55,19 @@ body {
 	@media (max-height: 500px) {
 		@apply absolute top-0 left-1/2 translate-x-[-50%]
 	}
+}
+
+.content-heading {
+	@apply m-0 flex h-[--content-heading-height]
+}
+.content-main {
+	@apply bg-tertiary-900 mt-0 flex py-4
+}
+.content-post {
+	@apply bg-red-500 mx-auto
+}
+.content-post-heading {
+	@apply h3 font-medium
 }
 
 

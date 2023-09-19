@@ -1,7 +1,7 @@
 import { join } from 'path'
 import { skeleton } from '@skeletonlabs/tw-plugin'
 import { oregano } from './oregano-theme'
-
+import { tailglow } from './tailglow-theme'
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -19,8 +19,7 @@ const config = {
 		require('@tailwindcss/container-queries'),
 		skeleton({
 			themes: {
-				preset: ['skeleton'],
-				custom: [oregano]
+				custom: [oregano, tailglow]
 			}}),
 		
 	]
