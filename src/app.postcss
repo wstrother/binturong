@@ -1,8 +1,32 @@
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
+html, body { @apply h-full }
+body {
+    background-image: url('$lib/images/bg.png');
+    background-position: center;
+}
 .page-main {
-    @apply m-4;
+	@apply 	md:w-3/4 
+			w-full px-4 mx-auto
+	;
+	p,ul {
+		@apply m-4 leading-snug mx-auto max-w-[850px];
+	}
+
+	li {
+		@apply my-4
+	}
+
+	@media (max-height: 500px) {
+		@apply absolute top-0 left-1/2 translate-x-[-50%]
+	}
+}
+
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('/fonts/Quicksand-VariableFont_wght.ttf');
 }

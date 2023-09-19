@@ -15,12 +15,15 @@ const config = {
 		extend: {}
 	},
 
-	plugins: [skeleton({
-		themes: {
-			preset: ['skeleton'],
-			custom: [oregano]
-		}
-	})]
+	plugins: [
+		require('@tailwindcss/container-queries'),
+		skeleton({
+			themes: {
+				preset: ['skeleton'],
+				custom: [oregano]
+			}}),
+		
+	]
 };
 
 module.exports = config;
