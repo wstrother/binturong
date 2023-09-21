@@ -20,7 +20,7 @@
     slotTrail="mx-4" spacing="" padding="p-2"
 >
     <svelte:fragment slot="lead">
-        &nbsp;
+        <a href="/blog/">Home</a>
     </svelte:fragment>
 
 

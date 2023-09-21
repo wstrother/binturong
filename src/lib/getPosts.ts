@@ -3,12 +3,13 @@ import * as path from 'path'
 
 
 export interface BlogPost {
+    fileName: string;
     title: string;
-    date: number;
+    date: string;
     body: string;
 }
 
-function parseMarkdownFile(fileName: string, fileContent: string): BlogPost {
+export function parseMarkdownFile(fileName: string, fileContent: string): BlogPost {
     const match = fileContent.match(/---([\s\S]*?)---([\s\S]*)/);
 
     if (!match) {
@@ -26,17 +27,18 @@ function parseMarkdownFile(fileName: string, fileContent: string): BlogPost {
     }
 
     const title = titleMatch[1].trim();
-    const dateString = dateMatch[1].trim();
-    const date = Date.parse(dateString);
+    const date = dateMatch[1].trim();
+    // const date = Date.parse(dateString);
 
-    if (isNaN(date)) {
-        throw Error(`Can't read frontmatter of ${fileName}`)
-    }
+    // if (isNaN(date)) {
+    //     throw Error(`Can't read frontmatter of ${fileName}`)
+    // }
 
     return {
         title,
         date,
         body,
+        fileName
     }
 }
   
