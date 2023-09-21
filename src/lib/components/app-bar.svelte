@@ -2,7 +2,7 @@
 	import { browser } from '$app/environment'
     import { AppBar, RadioGroup, RadioItem } from '@skeletonlabs/skeleton'
 
-    let theme: string = "oregano"
+    let theme: string = "tailglow"
     $: if (browser) {
         document.body.setAttribute('data-theme', theme)
     }

@@ -5,6 +5,4 @@
 
 <AppBar />
 
-<div class="page-main">
-	<slot />
-</div>
+<slot />

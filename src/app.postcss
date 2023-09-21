@@ -13,6 +13,7 @@ html, body { @apply h-full }
 
 :root [data-theme='tailglow'] {
     --bg-image: url('$lib/images/tailglow-bg.png');
+	--bg-heading-image: url('$lib/images/tailglow-bg-top.png');
 	--bg: var(--bg-image);
 }
 
@@ -28,19 +29,22 @@ html, body { @apply h-full }
 
 .app-bar {
 	height: var(--app-bar-height);
+	@media (max-height: 500px) {
+		display: none;
+	}
 }
 
 body {
 	background: var(--bg);
+	background-position: var(--bg-position);
 	background-size: var(--bg-size);
 	background-attachment: --bg-attachment;
 	@media screen and (max-width: 800px) {
 		background-image: var(--bg-image-mobile,var(--bg-image));
-		/* background-image: var(--bg-image-mobile), var(--bg-image); */
 	}
 }
-.page-main {
-	@apply 	md:w-3/4 
+/* .page-main {
+	@apply 	md:w-3/4 bg-red-500
 			w-full px-4 mx-auto
 	;
 	p,ul {
@@ -55,19 +59,74 @@ body {
 	@media (max-height: 500px) {
 		@apply absolute top-0 left-1/2 translate-x-[-50%]
 	}
+} */
+
+
+/* full-screen */
+@media (min-width: 1601px) {
+	:root {
+		--content-width: 65%;
+	}
+}
+/* mobile */
+@media (max-width: 700px) {
+	:root {
+		--content-width: 100%;
+		--content-width-max: 596px;
+	}
+}
+/* half-screen */
+@media (min-width: 701px) {
+	:root {
+		--content-width: 85%;
+		--content-width-max: 1041px;
+
+	}
+}
+.content-container-responsive {
+	@apply mx-auto;
+	width: var(--content-width);
+	max-width: var(--content-width-max);
 }
 
 .content-heading {
-	@apply m-0 flex h-[--content-heading-height]
+	@apply content-container-responsive;
+	@apply mb-0 flex h-[--content-heading-height] px-20;
+
+	background-image: var(--bg-heading-image);
+	background-position: center bottom;
+	background-repeat: repeat-x;
+	
+	@media (max-height: 500px) {
+		display: none;
+	}
 }
 .content-main {
-	@apply bg-tertiary-900 mt-0 flex py-4
+	@apply content-container-responsive;
+
+	@apply 	mt-0 gap-4
+			flex flex-col 
+			bg-primary-600 
+		;
+
+	p,ul {
+		@apply leading-snug indent-4;
+	}
+
+	li {
+		@apply my-4;
+	}
 }
+
 .content-post {
-	@apply bg-red-500 mx-auto
+	@apply px-4 border border-black
+	;
 }
+
 .content-post-heading {
 	@apply h3 font-medium
+		mb-4
+	;
 }
 
 
