@@ -15,6 +15,10 @@ html, body { @apply h-full }
     --bg-image: url('$lib/images/tailglow-bg.png');
 	--bg-heading-image: url('$lib/images/tailglow-bg-top.png');
 	--bg: var(--bg-image);
+
+	--bg-heading-logo: url('$lib/images/tailglow-heading.png');
+	--bg-heading-logo-half: url('$lib/images/tailglow-heading-half.png');
+	--bg-heading-logo-mobile: url('$lib/images/tailglow-heading-mobile.png');
 }
 
 :root [data-theme='oregano'] {
@@ -25,6 +29,8 @@ html, body { @apply h-full }
 	--bg-size: cover;
 	--bg-position: center;
 	--bg: var(--bg-image) var(--bg-repeat) var(--bg-attachment) var(--bg-position);
+
+	--content-heading-height: 0;
 }
 
 .app-bar {
@@ -43,29 +49,25 @@ body {
 		background-image: var(--bg-image-mobile,var(--bg-image));
 	}
 }
-/* .page-main {
-	@apply 	md:w-3/4 bg-red-500
-			w-full px-4 mx-auto
-	;
-	p,ul {
-		@apply m-4 leading-snug mx-auto max-w-[850px]
-			indent-4
-	}
-
-	li {
-		@apply my-4
-	}
-
-	@media (max-height: 500px) {
-		@apply absolute top-0 left-1/2 translate-x-[-50%]
-	}
-} */
-
 
 /* full-screen */
 @media (min-width: 1601px) {
 	:root {
 		--content-width: 65%;
+	}
+	:root [data-theme='tailglow'] {
+		--heading-logo: var(--bg-heading-logo);
+	}
+}
+/* half-screen */
+@media (min-width: 701px) and (max-width: 1600px){
+	:root {
+		--content-width: 85%;
+		--content-width-max: 1041px;
+
+	}
+	:root [data-theme='tailglow'] {
+		--heading-logo: var(--bg-heading-logo-half);
 	}
 }
 /* mobile */
@@ -74,46 +76,43 @@ body {
 		--content-width: 100%;
 		--content-width-max: 596px;
 	}
-}
-/* half-screen */
-@media (min-width: 701px) {
-	:root {
-		--content-width: 85%;
-		--content-width-max: 1041px;
-
+	:root [data-theme='tailglow'] {
+		--heading-logo: var(--bg-heading-logo-mobile);
 	}
 }
 .content-container-responsive {
-	@apply mx-auto;
+	@apply mx-auto ;
 	width: var(--content-width);
 	max-width: var(--content-width-max);
 }
-
-.content-heading {
-	@apply content-container-responsive;
-	@apply mb-0 flex h-[--content-heading-height] px-20;
-
+.content-heading-bg {
+	@apply 	bg-repeat-x h-[--content-heading-height] mb-0;
 	background-image: var(--bg-heading-image);
 	background-position: center bottom;
-	background-repeat: repeat-x;
-	
+}
+.content-heading {
+	@apply content-container-responsive content-heading-bg;
+	@apply flex;
+
+	/* hide on landscape mobile */
 	@media (max-height: 500px) {
 		display: none;
 	}
 
+	/* heading logo image */
 	&::before {
 		content: '';
 		@apply mx-auto;
-		background-image: url('$lib/images/tailglow-heading.png');
 		width: 100%;
+		background-image: var(--heading-logo);
 		background-repeat: no-repeat;
-		background-position: center top;
+		background-position: center;
 	}
 }
 .content-main {
 	@apply content-container-responsive;
 
-	@apply 	mt-0 gap-4
+	@apply 	mt-0 gap-1
 			flex flex-col 
 			
 		;
@@ -126,43 +125,84 @@ body {
 		@apply my-4;
 	}
 
-	div:last-child {
+	&>div:last-child {
 		@apply mb-20;
+	}
+}
+.content-post {
+	@apply 	pb-4
+	;
+
+	* {
+		@apply px-4;
+	}
+}
+.content-post-heading {
+	@apply 	h3 font-medium
+			pb-2
+	;
+}
+.content-post-body {
+	@apply mx-4 py-4;
+}
+
+body[data-theme='tailglow'] {
+	.content-heading {
+		@apply
+		border-primary-900
+		rounded-sm
+		shadow-lg 
+		border-l-2 
+		border-r-2 
+	}
+	.content-post-heading {
+		@apply bg-primary-600 text-secondary-400 
+		border-primary-900
+		rounded-sm
+		shadow-lg 
+		border-b-2 
+		border-l-2 
+		border-r-2 
+	}
+	
+	.content-post-body {
+		@apply bg-surface-400 
+		rounded-sm
+		shadow-lg 
+		border-b-2 
+		border-l-2 
+		border-r-2 
+		border-surface-500 
 	}
 
 	div.content-post:not(:first-child) {
-		transform: translatey(var(--content-heading-height));
 		margin-top: 0;
 		
 		&::before {
-			height: var(--content-heading-height);
-			transform: translatey(calc(-1 * var(--content-heading-height)));
+			@apply content-heading-bg
+			border-primary-900
+			rounded-sm
+			shadow-lg 
+			border-l-2 
+			border-r-2 
+			;
 			width: 100%;
 			content: '';
-			background-image: var(--bg-heading-image);
-			background-position: center bottom;
-			background-repeat: repeat-x;
-			margin-bottom: 0;
 			display: flex;
-			position: absolute;
 		}
 	}
 }
 
-.content-post {
-	@apply 	pb-4
-			bg-primary-600 
-	;
-
-	* {
-		@apply mx-4;
+body[data-theme='oregano'] {
+	.content-post-heading {
+		@apply variant-glass-tertiary
+				mb-2 rounded py-4
+				text-tertiary-700
 	}
-}
 
-.content-post-heading {
-	@apply h3 font-medium
-		mb-4
-	;
+	.content-post-body {
+		@apply bg-tertiary-900 rounded
+	}
 }
 
 

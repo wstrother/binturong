@@ -4,6 +4,7 @@
 
     let theme: string = "tailglow"
     $: if (browser) {
+        theme = localStorage.getItem('theme') ?? 'tailglow'
         document.body.setAttribute('data-theme', theme)
     }
 
@@ -11,6 +12,7 @@
         "tailglow",
         "oregano"
     ]
+
 </script>
 
 <AppBar
@@ -26,7 +28,9 @@
 
         <RadioGroup class="m-0" padding="p-1">
             {#each themes as t}            
-                <RadioItem bind:group={theme} name="theme" value={t}>{t}</RadioItem>
+                <RadioItem bind:group={theme} name="theme" value={t} on:click={() => localStorage.setItem('theme', t)}>
+                    {t}
+                </RadioItem>
             {/each}
         </RadioGroup>
     </svelte:fragment>

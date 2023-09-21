@@ -60,6 +60,30 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?</p>
         </div>
     </div>
+
+    <div class="content-post">
+        <div class="content-post-heading">        
+            Blog Post Title
+        </div>
+        <div class="content-post-body">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?</p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?
+            </p>
+            <div class="variant-ghost-primary page-div">
+                ghost primary
+            </div>
+            <div class="variant-ghost-secondary page-div">
+                ghost secondary
+            </div>
+            <div class="variant-ghost-tertiary page-div">
+                ghost tertiary
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?</p>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam non, adipisci, ab quod consectetur, eveniet perspiciatis esse sunt ut nostrum nobis suscipit quidem tempore culpa et repellat  modi quis. Atque?</p>
+        </div>
+    </div>
 </div>
 
 
