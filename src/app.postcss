@@ -100,13 +100,22 @@ body {
 	@media (max-height: 500px) {
 		display: none;
 	}
+
+	&::before {
+		content: '';
+		@apply mx-auto;
+		background-image: url('$lib/images/tailglow-heading.png');
+		width: 100%;
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
 }
 .content-main {
 	@apply content-container-responsive;
 
 	@apply 	mt-0 gap-4
 			flex flex-col 
-			bg-primary-600 
+			
 		;
 
 	p,ul {
@@ -116,11 +125,38 @@ body {
 	li {
 		@apply my-4;
 	}
+
+	div:last-child {
+		@apply mb-20;
+	}
+
+	div.content-post:not(:first-child) {
+		transform: translatey(var(--content-heading-height));
+		margin-top: 0;
+		
+		&::before {
+			height: var(--content-heading-height);
+			transform: translatey(calc(-1 * var(--content-heading-height)));
+			width: 100%;
+			content: '';
+			background-image: var(--bg-heading-image);
+			background-position: center bottom;
+			background-repeat: repeat-x;
+			margin-bottom: 0;
+			display: flex;
+			position: absolute;
+		}
+	}
 }
 
 .content-post {
-	@apply px-4 border border-black
+	@apply 	pb-4
+			bg-primary-600 
 	;
+
+	* {
+		@apply mx-4;
+	}
 }
 
 .content-post-heading {
