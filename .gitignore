@@ -9,6 +9,6 @@ node_modules
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vscode
-.src/lib/blogs.json
-.src/lib/scripts/*
-.src/lib/posts/*
+src/lib/blogs.json
+src/lib/scripts/*
+src/lib/posts/*
