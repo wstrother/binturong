@@ -16,6 +16,7 @@
 		"@skeletonlabs/tw-plugin": "^0.2.0",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
+		"@tailwindcss/forms": "^0.5.6",
 		"@types/node": "^20.6.2",
 		"@typescript-eslint/eslint-plugin": "^6.0.0",
 		"@typescript-eslint/parser": "^6.0.0",
@@ -37,6 +38,7 @@
 	"type": "module",
 	"dependencies": {
 		"@tailwindcss/container-queries": "^0.1.1",
-		"@tailwindcss/nesting": "^0.0.0-insiders.565cd3e"
+		"@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
+		"svelte-markdown": "^0.4.0"
 	}
 }

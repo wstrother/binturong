@@ -1,0 +1,124 @@
+.content-post-body {
+
+    /* h1 {color: rgba(197, 197, 178, 0.89)} */
+
+    h1 {@apply mb-4; font-size: 24pt}
+    h2 {@apply mb-4; font-size: 18pt}
+    h3 {@apply mb-4; font-size: 15pt}
+
+    a {@apply text-secondary-800}
+    a:hover {@apply text-secondary-700}
+
+    h2:first-child {
+        margin-top: 0;
+    }
+
+    blockquote {
+        /* implement me */
+    }
+
+    hr {
+        width: 100%;
+        background-color: rgba(0, 0, 0, .25);
+        height: 2px;
+        border: 0;
+        @apply my-4
+    }
+
+    p {
+        margin-left: 1rem;
+        margin-top: 0.25rem;
+        margin-top: 0.25rem;
+    }
+
+    p em {
+        background-color: rgba(189, 189, 189, 0.9);
+        border-radius: 3px;
+        padding: 0 5px;
+        display: inline-block;
+        font-family: monospace;
+        font-style: normal;
+        font-size: 12pt;
+    }
+
+    p strong {
+        font-weight: 700;
+    }
+
+
+    /* alert box */
+    p > strong > em {
+        display: block;
+        background-color: rgba(204, 106, 106, 0.9);
+        border-radius: 3px;
+        margin-left: 1rem;
+        padding: 5px;
+        font-family: 'Quicksand', 'Arial', sans-serif;
+    }
+
+
+    /* lists */
+    ul {
+        list-style: none;
+    }
+
+    li {
+        border-left: 2px solid rgba(0, 0, 0, .25);
+        margin-bottom: 10px;
+        padding-left: 5px;
+    }
+
+
+    /* inner section headers */
+    h3,h4 {
+        margin-left: 1rem;
+        margin-bottom: 0;
+        margin-top: 1.25rem;
+    }
+
+    h3 {
+        border-left: 2px solid rgba(0, 0, 0, .25);
+        padding-left: 5px;
+    }
+
+    h3+.language-json {
+        margin-top: 0.5rem;
+    }
+
+
+    /* Code blocks parent element */
+    .language-python,.language-json {
+        background-color: rgba(189, 189, 189, 0.9);
+        border-radius: 3px;
+
+        padding: 0.25rem;
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+        padding: 0.1rem;
+    }
+
+    pre {
+        font-size: 12pt;
+        margin:0;
+    }
+
+    /* syntax highlighting */
+
+    :root{
+        --bg-color: red;
+    }
+
+    .k {color: rgb(170, 57, 57)}
+    /* .nn {} */
+    .kn {color: blue}
+    .n {color: green}
+    .p {color: rgb(146, 73, 142)}
+    .o {color: purple}
+    .s {color: rgb(160, 125, 60)}
+
+    .nl {color: rgb(160, 42, 13)}
+    .s2 {color: rgb(160, 125, 60)}
+    .err {color: green}
+    .mi {color: rgb(180, 36, 36)}
+
+}
