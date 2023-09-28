@@ -7,7 +7,7 @@
 
 <div class="content-post">
     <div class="content-post-heading">
-        {post.title}
+        <span class="post-title">{post.title}</span>
 
         <span class="post-date"><a href={`/blog/${post.fileName}`}>
             {post.date}
